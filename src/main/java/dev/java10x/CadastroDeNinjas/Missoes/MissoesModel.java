@@ -10,10 +10,9 @@ import java.util.List;
 
 @Entity
 @Table (name = "tb_missoes")
-
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 public class MissoesModel {
 
     @Id

@@ -12,9 +12,10 @@ import java.util.List;
 // JPA = Java Persistence API
 @Entity
 @Table(name = "tb_cadastro ")
+@Data // Cria os getter and setters
 @NoArgsConstructor // Cria o construtor vazio
 @AllArgsConstructor // Cria o construtor com todos os argumentos.
-@Data // Cria os getter and setters
+
 
 public class NinjaModel {
 
