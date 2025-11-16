@@ -1,8 +1,7 @@
 package dev.java10x.CadastroDeNinjas.Ninjas;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 @RestController
 @RequestMapping
 public class NinjaController {
@@ -11,4 +10,33 @@ public class NinjaController {
     public String boasVindas(){
         return "Essa é a minha primeira mensagem nessa rota";
     }
-}
+
+    // Adicionar ninja (CREATE)
+    @PostMapping("/adicionar")
+    public String criarNinja(){
+        return "Ninja criado";
+    }
+
+    // Mostrar todos os ninjas (READ)
+    @GetMapping("/todos")
+    public String mostrarTodosOsNinjas(){
+        return "Mostrar Ninjas";
+    }
+    // Mostrar todos os ninjas por id (READ)
+    @GetMapping("/todosID")
+    public String mostrarTodosOsNinjasPorId(){
+        return "Mostrar Ninjas por ID";
+    }
+    // Alterar dados dos ninjas (UPTDATE)
+    @PutMapping("/alterarID")
+    public String alterarNinjaPorId(){
+        return "Alterar Ninjas por ID";
+    }
+
+    // Deletar Ninja (DELETE)
+    @DeleteMapping("/deletarID")
+        public String deletarNinjaPorId(){
+            return "Alterar Ninjas por ID";
+        }
+    }
+
