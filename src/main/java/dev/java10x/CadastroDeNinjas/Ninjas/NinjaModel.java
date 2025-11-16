@@ -11,7 +11,7 @@ import java.util.List;
 // Entity ele transforma uma classe em uma entidade do BD
 // JPA = Java Persistence API
 @Entity
-@Table(name = "tb_cadastro ")
+@Table(name = "tb_cadastro")
 @Data // Cria os getter and setters
 @NoArgsConstructor // Cria o construtor vazio
 @AllArgsConstructor // Cria o construtor com todos os argumentos.
@@ -29,6 +29,9 @@ public class NinjaModel {
 
     @Column(unique = true)
     private String email;
+
+    @Column(name = "img_url")
+    private String imgUrl;
 
     @Column(name = "idade")
     private int idade;
