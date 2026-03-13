@@ -2,6 +2,7 @@ package dev.java10x.CadastroDeNinjas.Missoes;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -27,5 +28,10 @@ public class MissoesService {
     // Criar as missões
     public MissoesModel criarMissoes(MissoesModel missoes){
         return missoesRepository.save(missoes);
+    }
+
+    // Deletar missões por ID
+    public void deletarMissao(Long id){
+        missoesRepository.deleteById(id);
     }
 }

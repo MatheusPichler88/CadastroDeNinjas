@@ -20,13 +20,13 @@ public class MissoesController {
         return missoesService.criarMissoes(missoes);
     }
 
-    // Mostrar todas as missões
+    // Listar todas as missões
     @GetMapping("/listar")
     public List<MissoesModel> mostrarMissoes(){
         return missoesService.listarMissoes();
     }
 
-    // Mostrar as missões por ID
+    // Listar as missões por ID
     @GetMapping("/listar/{id}")
     public MissoesModel mostrarMissoesID(@PathVariable Long id){
         return missoesService.listarMissoesPorId(id);
@@ -40,7 +40,7 @@ public class MissoesController {
 
     // Deletar missoẽs
     @DeleteMapping("/deletar")
-    public String deletarMissoes(){
-        return "Deletar Missões";
+    public void deletarMissoes(@PathVariable Long id){
+        missoesService.deletarMissao(id);
     }
 }
