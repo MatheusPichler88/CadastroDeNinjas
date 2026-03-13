@@ -17,7 +17,7 @@ public class MissoesController {
 
     // Adicionando missão
     @PostMapping("/criar")
-    public MissoesModel criarMissao(@RequestBody MissoesModel missoes){
+    public MissoesDTO criarMissao(@RequestBody MissoesDTO missoes){
         return missoesService.criarMissoes(missoes);
     }
 
