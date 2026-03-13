@@ -1,10 +1,12 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MissoesService {
 
     @Autowired
