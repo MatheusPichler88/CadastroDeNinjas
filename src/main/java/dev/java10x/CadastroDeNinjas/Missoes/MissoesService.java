@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class MissoesService {
@@ -14,14 +15,17 @@ public class MissoesService {
     private MissoesMapper missoesMapper;
 
     // Listar todas as missões
-    public List<MissoesModel> listarMissoes(){
-        return missoesRepository.findAll();
+    public List<MissoesDTO> listarMissoes(){
+        List<MissoesModel> missoes = missoesRepository.findAll();
+        return missoes.stream()
+                .map(missoesMapper::map)
+                .collect(Collectors.toList());
     }
 
     // Listar todas as missões por ID
-    public MissoesModel listarMissoesPorId (Long id){
-        Optional<MissoesModel> missoesModel = missoesRepository.findById(id);
-        return missoesModel.orElse(null);
+    public MissoesDTO listarMissoesPorId (Long id){
+        Optional<MissoesModel> missoesPorID = missoesRepository.findById(id);
+        return missoesPorID.map(missoesMapper::map).orElse(null);
     }
 
     // Criar as missões
@@ -37,10 +41,13 @@ public class MissoesService {
     }
 
     // Atualizar missões
-    public MissoesModel atualizarMissao(Long id, MissoesModel missaoAtualizada){
-        if(missoesRepository.existsById(id)){
+    public MissoesDTO atualizarMissao(Long id, MissoesDTO missaoDTO){
+        Optional<MissoesModel> missaoExistente = missoesRepository.findById(id);
+        if(missaoExistente.isPresent()){
+            MissoesModel missaoAtualizada = missoesMapper.map(missaoDTO);
             missaoAtualizada.setId(id);
-            missoesRepository.save(missaoAtualizada);
+            MissoesModel missaoSalva = missoesRepository.save(missaoAtualizada);
+            return missoesMapper.map(missaoSalva);
         }
         return null;
     }

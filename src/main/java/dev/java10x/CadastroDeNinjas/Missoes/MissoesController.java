@@ -23,19 +23,19 @@ public class MissoesController {
 
     // Listar todas as missões
     @GetMapping("/listar")
-    public List<MissoesModel> mostrarMissoes(){
+    public List<MissoesDTO> mostrarMissoes(){
         return missoesService.listarMissoes();
     }
 
     // Listar as missões por ID
     @GetMapping("/listar/{id}")
-    public MissoesModel mostrarMissoesID(@PathVariable Long id){
+    public MissoesDTO mostrarMissoesID(@PathVariable Long id){
         return missoesService.listarMissoesPorId(id);
     }
 
     // Alterar dados das missões
     @PutMapping("/alterar/{id}")
-    public MissoesModel atualizarMissoes(@PathVariable Long id, @RequestBody MissoesModel missaoAtualizada){
+    public MissoesDTO atualizarMissoes(@PathVariable Long id, @RequestBody MissoesDTO missaoAtualizada){
         return missoesService.atualizarMissao(id, missaoAtualizada);
     }
 
