@@ -57,7 +57,7 @@ public class MissoesController {
     }
 
     // Deletar missoẽs
-    @DeleteMapping("/deletar")
+    @DeleteMapping("/deletar/{id}")
     public ResponseEntity<String> deletarMissoes(@PathVariable Long id) {
         if (missoesService.listarMissoesPorId(id) != null) {
             missoesService.deletarMissao(id);

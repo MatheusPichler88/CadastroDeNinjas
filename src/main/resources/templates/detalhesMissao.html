@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes da Missão</title>
+
+    <style>
+
+        body{
+        font-family:'Segoe UI';
+        background:#0f172a;
+        color:white;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        }
+
+        .container{
+        background:#1e293b;
+        padding:30px;
+        border-radius:16px;
+        width:400px;
+        box-shadow:0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        h1{
+        text-align:center;
+        margin-bottom:20px;
+        color:#f97316;
+        }
+
+        .info{
+        margin-bottom:15px;
+        font-size:16px;
+        }
+
+        .label{
+        color:#94a3b8;
+        }
+
+        .valor{
+        font-weight:bold;
+        }
+
+        .voltar{
+        display:block;
+        text-align:center;
+        margin-top:20px;
+        color:#94a3b8;
+        text-decoration:none;
+        }
+
+        .botao{
+        width:100%;
+        padding:10px;
+        background:#16a34a;
+        border:none;
+        border-radius:8px;
+        color:white;
+        font-weight:bold;
+        cursor:pointer;
+        text-align:center;
+        display:block;
+        text-decoration:none;
+        }
+
+        .botao:hover{
+        background:#22c55e;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 th:text="${missao.nome}">Nome da Missão</h1>
+
+    <div class="info">
+        <span class="label">ID:</span>
+        <span class="valor" th:text="${missao.id}"></span>
+    </div>
+
+    <div class="info">
+        <span class="label">Dificuldade:</span>
+        <span class="valor" th:text="${missao.dificuldade}"></span>
+    </div>
+
+    <a class="botao" th:href="@{/missoes/ui/listar}">
+        Voltar para Missões
+    </a>
+
+</div>
+
+</body>
+</html>
