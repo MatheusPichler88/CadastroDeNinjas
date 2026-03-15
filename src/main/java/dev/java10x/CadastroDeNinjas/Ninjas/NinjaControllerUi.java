@@ -69,6 +69,7 @@ public class NinjaControllerUi {
 
         if (ninja != null) {
             model.addAttribute("ninja", ninja);
+            model.addAttribute("missoes", missoesService.listarMissoes());
             return "editarNinja";
         } else {
             return "redirect:/ninjas/ui/listar";
