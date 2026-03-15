@@ -1,18 +1,20 @@
-# 🥷 Sistema de Cadastro de Ninjas
+# 🥷 Cadastro de Ninjas (Vila da Folha)
 
-Bem-vindo ao **Cadastro de Ninjas**, uma aplicação robusta de gerenciamento desenvolvida com foco em arquitetura em camadas e boas práticas de desenvolvimento backend. Este sistema foi criado como parte da minha jornada no curso **Java10x**, onde aprofundei meus conhecimentos em Spring Boot, persistência de dados e automação.
+Bem-vindo ao **Cadastro de Ninjas**, uma aplicação de arquitetura em camadas desenvolvida com **Spring Boot**. Este projeto foi criado para o gerenciamento de ninjas e suas respectivas missões, focando em boas práticas de desenvolvimento de software e controle de versão.
 
-
+---
 
 ## 🚀 Sobre o Projeto
-Este sistema gerencia o registro de ninjas da Vila da Folha e suas respectivas missões. Ele permite operações completas (CRUD) com foco em consistência de dados e relacionamentos eficientes entre entidades.
+Este sistema permite o registro de ninjas da Vila da Folha e a atribuição de missões a eles. O projeto demonstra a integração entre **Spring Data JPA**, **Flyway** para migrações de banco de dados e uma API REST documentada.
 
 ### Principais Funcionalidades
-* **Gestão de Ninjas:** Cadastro detalhado (nome, idade, email, rank).
-* **Atribuição de Missões:** Relacionamento inteligente entre ninjas e missões.
+* **Cadastro de Ninjas:** Gerenciamento completo de nome, idade, email e rank.
+* **Atribuição de Missões:** Vínculo automático entre ninjas e missões através de relacionamento de banco de dados.
 * **Persistência de Dados:** Uso de JPA/Hibernate com suporte a banco de dados H2 (testes) e MySQL (produção).
-* **Migração Automatizada:** Controle de versão do banco via Flyway.
-* **Documentação:** API totalmente documentada via OpenAPI (Swagger).
+* **Migração Automatizada:** Banco de dados versionado via **Flyway**.
+* **Documentação:** API documentada e interativa via **Swagger (OpenAPI)**.
+
+---
 
 ## 🛠 Tecnologias Utilizadas
 
@@ -21,19 +23,18 @@ Este sistema gerencia o registro de ninjas da Vila da Folha e suas respectivas m
 | **Back-end** | Java 17+, Spring Boot, Spring Data JPA |
 | **Banco de Dados** | MySQL, H2 (Memory), SQL |
 | **Gerenciamento** | Maven, Flyway, Docker |
+| **Documentação** | Swagger (OpenAPI) |
 | **Controle de Versão** | Git & GitHub |
 
+---
+
 ## 📊 Design do Banco de Dados
-O sistema utiliza um modelo de relacionamento eficiente para garantir a integridade:
-
+O sistema utiliza um modelo relacional eficiente:
 * **Ninja:** Identificador único, nome, idade, email e rank.
-* **Missão:** Título, descrição e dificuldade.
-* **Relacionamento:** Implementação de chave estrangeira (`missoes_id`), permitindo que um ninja seja vinculado a uma missão específica.
+* **Missão:** Título, dificuldade e descrição.
+* **Relacionamento:** Implementação de chave estrangeira (`missoes_id`), vinculando ninjas a missões específicas.
 
+### 🌐 Acesse a aplicação:
 
-
-## 🚀 Como Rodar o Projeto
-
-1. **Clone o repositório:**
-   ```bash
-   git clone [https://github.com/MatheusPichler88/CadastroDeNinjas.git](https://github.com/MatheusPichler88/CadastroDeNinjas.git)
+* **Interface Web:** [http://localhost:8080](http://localhost:8080)
+* **Documentação da API (Swagger):** [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
