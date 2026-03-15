@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
 
+import dev.java10x.CadastroDeNinjas.Ninjas.NinjaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,9 @@ public class MissoesService {
 
     private MissoesRepository missoesRepository;
     private MissoesMapper missoesMapper;
+
+    @Autowired
+    private NinjaRepository ninjaRepository;
 
     public MissoesService(MissoesRepository missoesRepository, MissoesMapper missoesMapper) {
         this.missoesRepository = missoesRepository;
@@ -34,9 +38,16 @@ public class MissoesService {
 
     // Criar as missões
     public MissoesDTO criarMissoes(MissoesDTO missoesDTO){
-        MissoesModel missoes = missoesMapper.map(missoesDTO);
-        missoes = missoesRepository.save(missoes);
-        return missoesMapper.map(missoes);
+        MissoesModel missao = missoesMapper.map(missoesDTO);
+        missao = missoesRepository.save(missao);
+        if (missoesDTO.getNinjaId() != null) {
+            final MissoesModel missaoSalva = missao;
+            ninjaRepository.findById(missoesDTO.getNinjaId()).ifPresent(ninja -> {
+                ninja.setMissoes(missaoSalva);
+                ninjaRepository.save(ninja);
+            });
+        }
+        return missoesMapper.map(missao);
     }
 
     // Deletar missões por ID

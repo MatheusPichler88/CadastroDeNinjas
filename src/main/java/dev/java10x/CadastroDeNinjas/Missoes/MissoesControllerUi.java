@@ -1,5 +1,6 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
 
+import dev.java10x.CadastroDeNinjas.Ninjas.NinjaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +12,11 @@ import java.util.List;
 public class MissoesControllerUi {
 
     private final MissoesService missoesService;
+    private final NinjaService ninjaService;
 
-    public MissoesControllerUi(MissoesService missoesService) {
+    public MissoesControllerUi(MissoesService missoesService, NinjaService ninjaService) {
         this.missoesService = missoesService;
+        this.ninjaService = ninjaService;
     }
 
     // LISTAR MISSÕES
@@ -39,6 +42,7 @@ public class MissoesControllerUi {
     @GetMapping("/novo")
     public String mostrarFormularioCriar(Model model) {
         model.addAttribute("missao", new MissoesDTO());
+        model.addAttribute("ninjas", ninjaService.listarNinjas());
         return "criarMissao";
     }
 

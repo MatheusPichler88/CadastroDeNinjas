@@ -24,6 +24,11 @@ public class MissoesMapper {
         missoesDTO.setNome(missoesModel.getNome());
         missoesDTO.setDificuldade(missoesModel.getDificuldade());
 
+        // Se a missão tiver ninjas, podemos pegar o ID do primeiro para mostrar no formulário/lista
+        if (missoesModel.getListaNinjas() != null && !missoesModel.getListaNinjas().isEmpty()) {
+            missoesDTO.setNinjaId(missoesModel.getListaNinjas().get(0).getId());
+        }
+
         return missoesDTO;
     }
 

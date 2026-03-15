@@ -13,5 +13,6 @@ public class MissoesDTO {
     private Long id;
     private String nome;
     private String dificuldade;
+    private Long ninjaId;
 
 }
